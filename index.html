@@ -5,8 +5,71 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="public/style.css">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 </head>
-<body>
-<div class="w-full h-screen bg-indigo-100"></div>
+<body class="m-0 box-border p-0 min-h-screen min-w-full overflow-hidden font-poppins text-white" x-data="mydata()">
+<div class="w-full h-screen flex px-5 " :class="mycolor">
+    <div class="w-1/12 px-4 flex flex-col h-5/7  justify-around ">
+        <img src="public/images/8thNov_Icon_Glow.png" alt="icon" class="object-cover"/>
+        <div class="flex justify-around flex-col font-mono h-1/2 text-xl items-start">
+            <button @click="toggle('isHome')" class="focus:outline-none">Home</button>
+            <button @click="toggle('isAbout')" class="focus:outline-none">About</button>
+            <button @click="toggle('isWork')" class="focus:outline-none">Work</button>
+            <button @click="toggle('isContact')" class="focus:outline-none">Contact</button>
+
+        </div>
+
+    </div>
+    <div class="home w-11/12  h-full flex justify-evenly sm:justify-around items-center flex-col sm:flex-row px-10 sm:px-4 relative" x-show="isHome">
+       <div class="home_text h-1/3  sm:w-4/12 p-2 "> <p class="font-poppins italic text-2xl font-bold">" Hello You, I'm Zaw Lin Tun.
+            Nice to meet you!
+            I'm trying to be full-stack web
+            developer and 3D designer. "</p>
+       </div>
+        <div class="w-0 h-0 sm:w-1/12"></div>
+        <img src="public/images/8thNov.png" alt="hello" class="home_image sm:absolute right-0  object-contain w-8/12 sm:w-5/12">
+    </div>
+    <div class="about w-11/12 bg-deepOrange  h-full flex justify-evenly sm:justify-around items-center flex-col sm:flex-row px-10 sm:px-4 relative" x-show="isAbout">
+     <img src="public/images/8thNov_Pc-removebg-preview.png" alt="pc" class="object-cover bg-cover">
+    </div>
+    <div class="work w-11/12  h-full flex bg-deepBlue-200 justify-evenly sm:justify-around items-center flex-col sm:flex-row px-10 sm:px-4 relative" x-show="isWork">
+        </div>
+    <div class="contact w-11/12  h-full flex bg-deepGreen-100 justify-evenly sm:justify-around items-center flex-col sm:flex-row px-10 sm:px-4 relative" x-show="isContact">
+        </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script>
+    const tl=gsap.timeline({defaults:{ease:"power1.out"}});
+    const mydata=function(){
+        return {
+            isHome:false,
+            isAbout:true,
+            isWork:false,
+            isContact:false,
+            mycolor:'bg-deepOrange',
+            toggle(a){
+                switch(a){
+                    case "isHome": this.isHome=true; this.isAbout=false;this.isWork=false;this.isContact=false; this.animateHome();this.mycolor="bg-deepBlue-100"; break;
+                    case "isAbout": this.isHome=false; this.isAbout=true;this.isWork=false;this.isContact=false;console.log('about');this.mycolor="bg-deepOrange"; break;
+                    case "isWork": this.isHome=false; this.isAbout=false;this.isWork=true;this.isContact=false;console.log('work');this.mycolor="bg-deepBlue-200";break;
+                    case "isContact": this.isHome=false; this.isAbout=false;this.isWork=false;this.isContact=true;console.log('contact');this.mycolor="bg-deepGreen-100";break;
+                }
+            },
+            animateHome(){
+              tl.fromTo('.home_text',{x:"-100%",autoAlpha:0,duration:1},{x:"0%",autoAlpha: 1,duration:1});
+              tl.fromTo('.home_image',{y:"-100%",autoAlpha:0,duration:1},{y:"0%",autoAlpha: 1,duration:1},"-=1");
+            }
+        }
+    }
+
+  const home=document.querySelector('.home');
+    home.addEventListener('click',function(){
+    });
+    home.addEventListener('mouseover',function(){
+        // tl.to('.home',{duration:1,repeat:-1,yoyo:true})
+    })
+
+</script>
 </body>
 </html>
