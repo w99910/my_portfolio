@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="public/style.css">
-    <title>Title</title>
+    <title>My Portfolio</title>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
@@ -63,17 +63,17 @@
            </div>
             <div class="w-full sm:w-1/2 h-full  flex justify-between flex-col p-2 sm:p-5 font-josefin text-xl relative">
                 <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.4);" class="ml-0 mt-0  sm:-ml-1/10 sm:mt-1/10 about-box about-text_1 w-11/12 sm:w-1/2 h-5/7 block sm:absolute sm:top-0 sm:left-0 text-md sm:text-xl bg-deepBlue-300 text-white break-words p-5  rounded-3xl flex flex-col justify-around">
-                        <p class="text-xl about-text">Web Experiences</p>
+                        <p class="text-xl about-text text-center text-deepOrange-100">Web Experiences</p>
                         <p class="about-text">Laravel(2years)</p>
                         <p class="about-text">Livewire(6months)</p>
                         <p class="about-text">PHP(2years)</p>
                         <p class="about-text" >HTML5(2years)</p><p class="about-text">Css3(2years)</p><p class="about-text">VueJs(1year)</p><p class="about-text">AlpineJs(6month)</p><p class="about-text">Bootstrap(1year)</p><p class="about-text">TailwindCss(6month)</p>
                     </div>
-                    <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.4);" class="mt-0 ml-0 sm:mt-24/100 sm:ml-28/100 about-box about-text_1 sm:absolute top-0 left-0 sm:mt-0 sm:mb-0 mt-2 mb-2 text-md bg-gray-500 text-white rounded-3xl break-words p-5 w-11/12 sm:w-1/2 h-32 sm:h-5/7 flex flex-col justify-between">
-                       <div class="flex flex-col w-full h-1/2 "> <p class="text-xl about-text_1">Mobile Experiences</p>
+                    <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.4);" class="mt-0 ml-0 sm:mt-24/100 sm:ml-28/100 about-box about-text_1 sm:absolute top-0 left-0 sm:mt-0 sm:mb-0 mt-2 mb-2 text-md bg-gray-500 text-white rounded-3xl break-words p-5 w-11/12 sm:w-1/2 h-auto sm:h-5/7 flex flex-col justify-between">
+                       <div class="flex flex-col w-full h-1/2 "> <p class="text-xl about-text_1 text-center text-deepOrange-100">Mobile Experiences</p>
                         <p class="about-text_1">Flutter(6months)</p>
                        </div>
-                        <div class="flex flex-col w-full h-1/2"> <p class="fluid_lg_text about-text_1">3D design Experiences</p>
+                        <div class="flex flex-col w-full h-1/2 mt-2 sm:mt-0"> <p class="text-xl about-text_1 text-center text-deepOrange-100">3D design Experiences</p>
                             <p class="about-text_1">Blender(8months)</p>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="w-full sm:w-1/2 h-full flex p-0 sm:p-4 items-center justify-center">
                     <div class="w-full flex flex-col h-full bg-lightWhite">
                         <div class="w-full h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl font-josefin flex items-center justify-center">
-                               <p>"ShopMe" E-Commerce website</p>
+                               <p class="text-center">"ShopMe" E-Commerce website</p>
                         </div>
                         <div class="flex flex-col font-josefin p-4 text-lg w-full text-white">
                             <div class="w-full h-full p-4 bg-deepPurple-300">
@@ -121,9 +121,9 @@
             </div>
             <div class="flex flex-col sm:flex-row h-full w-full p-0 sm:p-6">
                <div class="w-full sm:w-1/2 h-full p-4 flex items-center justify-center">
-                   <div class="w-full flex flex-col h-full bg-dark-300 p-4 justify-center items-center">
+                   <div class="w-full flex flex-col h-full bg-dark-300 p-0 sm:p-4 justify-center items-center">
                        <div class="w-full p-4 h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl  font-josefin flex items-center justify-center">
-                           <p>"ShopMe" Flutter Android App Version</p>
+                           <p class="text-center">"ShopMe" Flutter Android App Version</p>
                        </div>
                        <div class="flex flex-col font-josefin bg-lightWhite p-4 text-lg w-full text-white">
                            <div class="w-full h-full p-4 bg-deepPurple-300">
@@ -153,7 +153,7 @@
                     <div class="w-full sm:w-1/2 h-full flex p-0 sm:p-4 items-center justify-center text-lg">
                         <div class="w-full flex flex-col h-full bg-lightWhite">
                             <div class="w-full h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl font-josefin flex items-center justify-center">
-                                <p>"YCC Social Group" website</p>
+                                <p class="text-center">"YCC Social Group" website</p>
                             </div>
                             <div class="flex flex-col font-josefin p-4 text-lg w-full text-white">
                                 <div class="w-full h-full p-4 bg-deepPurple-300">
@@ -371,7 +371,6 @@
             trigger: "#contact",
             start: "-5% bottom",
             end:"bottom 90%",
-            markers:true,
             toggleActions:"play reverse play reverse",
         }
     });
@@ -470,7 +469,13 @@
                scrolling(home_el.top,home_el.height,false);
             },
             scrollToWork:()=>{
-                scrolling(work_el.top,work_el.height,true);
+                // scrolling(work_el.top,work_el.height,true);
+                gsap.to(bodyScrollBar,
+                    {duration:1,
+
+                        scrollTo: {y:work_el.top},onComplete: ()=>{
+                            bodyScrollBar.scrollTop = work_el.top
+                        },  });
             },
             scrollToContact:()=>{
                 scrolling(work_el.bottom,work_el.height,false);
