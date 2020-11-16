@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "build-css": "tailwindcss build src/style.css -o public/style.css"
+    "build-css": "tailwindcss build src/style.css -o public/style.css"
   },
-  "author": "",
+  "author": "Zaw Lin Tun",
   "license": "ISC",
   "dependencies": {
+    "locomotive-scroll": "^3.6.1",
+    "smooth-scrollbar": "^8.5.3",
     "tailwindcss": "^1.9.6"
   }
 }
