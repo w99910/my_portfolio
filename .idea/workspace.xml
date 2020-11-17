@@ -22,7 +22,6 @@
     <list default="true" id="b6468387-58e3-4c1f-b7ef-351330b5306a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="D:/coursea_pj" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -93,7 +92,8 @@
       <workItem from="1605527437655" duration="19499000" />
       <workItem from="1605583960033" duration="596000" />
       <workItem from="1605594378763" duration="63000" />
-      <workItem from="1605596543154" duration="2777000" />
+      <workItem from="1605596543154" duration="3683000" />
+      <workItem from="1605618006470" duration="1037000" />
     </task>
     <servers />
   </component>
@@ -117,10 +117,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="360" y="98" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1605072944602" />
-    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1604974689883">
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1605601919970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604974689883" />
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605601919970" />
     <state x="206" y="9" key="SettingsEditor" timestamp="1605085585291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
