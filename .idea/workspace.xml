@@ -22,6 +22,7 @@
     <list default="true" id="b6468387-58e3-4c1f-b7ef-351330b5306a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,9 @@
       <workItem from="1605418250888" duration="21660000" />
       <workItem from="1605511269916" duration="9577000" />
       <workItem from="1605527437655" duration="19499000" />
-      <workItem from="1605583960033" duration="98000" />
+      <workItem from="1605583960033" duration="596000" />
+      <workItem from="1605594378763" duration="63000" />
+      <workItem from="1605596543154" duration="2777000" />
     </task>
     <servers />
   </component>
