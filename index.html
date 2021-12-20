@@ -1,631 +1,1488 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="public/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="public/style.css" />
     <title>Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"
+      defer
+    ></script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-</head>
-<style>
-.scroll-content{
-    height:100%;
-    width:100%;
-}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+  </head>
+  <style>
+    .scroll-content {
+      height: 100%;
+      width: 100%;
+    }
 
-/*.art_1:nth-child(1){*/
-/*    grid-column: span 2;*/
-/*    grid-row:span 1;*/
-/*}*/
-</style>
-<!--<body class="h-screen w-full m-0 box-border">-->
-<body x-data="my_data()" class="min-h-screen w-full">
-
-<div class="intro_screen_1 h-screen flex justify-center items-center w-full bg-dark-500 fixed z-20">
-    <div class="w-full sm:w-10/12 overflow-hidden flex flex-col sm:flex-row justify-around items-center text-center">
-<!--        <img src="public/images/8thNov_Icon_Glow.png" alt="" class="greeting_text w-full sm:w-1/2">-->
+    /*.art_1:nth-child(1){*/
+    /*    grid-column: span 2;*/
+    /*    grid-row:span 1;*/
+    /*}*/
+  </style>
+  <!--<body class="h-screen w-full m-0 box-border">-->
+  <body x-data="my_data()" class="min-h-screen w-full">
+    <div
+      class="
+        intro_screen_1
+        h-screen
+        flex
+        justify-center
+        items-center
+        w-full
+        bg-dark-500
+        fixed
+        z-20
+      "
+    >
+      <div
+        class="
+          w-full
+          sm:w-10/12
+          overflow-hidden
+          flex flex-col
+          sm:flex-row
+          justify-around
+          items-center
+          text-center
+        "
+      >
+        <!--        <img src="public/images/8thNov_Icon_Glow.png" alt="" class="greeting_text w-full sm:w-1/2">-->
         <p class="greeting_text text-white font-mono text-2xl">Hello</p>
-
+      </div>
     </div>
-</div>
-<div class="intro_screen_2 h-screen w-full bg-deepBlue-300 fixed z-30 transform translate-y-full"></div>
-<div class="w-full h-screen bg-dark-500 p-2 sm:p-6 relative">
-    <div class="w-full h-full relative" id="host">
-        <div class="w-full sm:w-1/2 h-16 flex items-center justify-around py-2 px-4 sm:px-10 transform border-t-2 border-lightWhite border-r-2 border-l-2 translate-x-0 sm:translate-x-1/2 bg-gray-900 z-10 fixed sm:absolute bottom-0 rounded-t-3xl left-0">
-            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToHome"   width="16" height="16" class="home_icon w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 16 16"><path fill="#4F9783" fill-rule="nonzero" d="M11.5,8 C12.3284271,8 13,8.67157288 13,9.5 L13,10 C13,11.9714437 11.14049,14 8,14 C4.85950997,14 3,11.9714437 3,10 L3,9.5 C3,8.67157288 3.67157288,8 4.5,8 L11.5,8 Z M8,1.5 C9.51878306,1.5 10.75,2.73121694 10.75,4.25 C10.75,5.76878306 9.51878306,7 8,7 C6.48121694,7 5.25,5.76878306 5.25,4.25 C5.25,2.73121694 6.48121694,1.5 8,1.5 Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToAbout" class="about_icon w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 520 520"><g data-name="11. Info"><circle cx="260" cy="260" r="230" fill="#FACF5A"/><path fill="#FACF5A" d="M353.89257,164.16667,160.16991,349.62733,297.45829,486.91572A230.12211,230.12211,0,0,0,486.95608,297.23017Z"/><circle cx="260" cy="260" r="134.167" fill="#fff"/><path fill="#FACF5A" d="M145,260A134.0751,134.0751,0,0,1,269.58333,126.31706c-3.17787-.22519-6.34814-.48373-9.58333-.48373a134.16667,134.16667,0,0,0,0,268.33334c3.23519,0,6.40546-.25854,9.58333-.48373A134.0751,134.0751,0,0,1,145,260Z"/><rect width="38.333" height="115" x="240.833" y="231.25" fill="#FACF5A" rx="19.167" ry="19.167"/><path fill="#FACF5A" d="M250.41667,327.08333V250.41667a19.12154,19.12154,0,0,1,14.375-18.48875,18.93344,18.93344,0,0,0-23.95834,18.48875v76.66666a18.93344,18.93344,0,0,0,23.95834,18.48875A19.12154,19.12154,0,0,1,250.41667,327.08333Z"/><circle cx="260" cy="183.333" r="19.167" fill="#fbae04"/><path fill="#FACF5A" d="M250.41667,183.33333a19.12153,19.12153,0,0,1,14.375-18.48874,19.16854,19.16854,0,1,0,0,36.97749A19.12154,19.12154,0,0,1,250.41667,183.33333Z"/></g></svg>
-<!--            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToWork"  class="work_icon w-8 h-8 sm:w-12 sm:h-12" viewBox="0 0 64 64"><g data-name="Layer 2"><polygon fill="#4B89AC" points="55 32.46 55 54 9 54 9 32.46 32 36 55 32.46"/><path fill="#4B89AC" d="M41,20H23a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H41a1,1,0,0,1,1,1v8A1,1,0,0,1,41,20ZM24,18H40V12H24Z"/><polygon fill="#4B89AC" points="58 18 58 32 55 32.46 32 36 9 32.46 6 32 6 18 58 18"/><rect width="4" height="8" x="30" y="32" fill="#e8af0a"/></g></svg>-->
-            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToWork" class="work_icon w-8 h-8 sm:w-10 sm:h-10" data-name="Layer 1" viewBox="0 0 64 64"><path fill="gray" d="M3,43H61a0,0,0,0,1,0,0v4a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V43A0,0,0,0,1,3,43Z"/><rect width="58" height="3" x="3" y="43" fill="#6b6b6b"/><rect width="52" height="32" x="5.83" y="11" fill="#94e6ff"/><rect width="52" height="3" x="5.83" y="11" fill="#5cb7e6"/><rect width="14" height="3" x="25.42" y="43" fill="#ffcc40"/><rect width="18" height="32" x="43" y="21" fill="#fc7a71" rx="2" ry="2"/><path fill="#db584f" d="M45,21H59a2,2,0,0,1,2,2v1a0,0,0,0,1,0,0H43a0,0,0,0,1,0,0V23A2,2,0,0,1,45,21Z"/><path fill="#ebe3d8" d="M43,49H61a0,0,0,0,1,0,0v2a2,2,0,0,1-2,2H45a2,2,0,0,1-2-2V49A0,0,0,0,1,43,49Z"/><path fill="#0a1827" d="M30,16h4a1,1,0,0,0,0-2H30a1,1,0,0,0,0,2Z"/><path fill="#0a1827" d="M59,20h-.17V11a1,1,0,0,0-1-1h-52a1,1,0,0,0-1,1V42H3a1,1,0,0,0-1,1v4a3,3,0,0,0,3,3H42v1a3,3,0,0,0,3,3H59a3,3,0,0,0,3-3V23A3,3,0,0,0,59,20ZM6.83,12h50v8H45a3,3,0,0,0-3,3V42H6.83ZM26.42,44h12v1h-12ZM5,48a1,1,0,0,1-1-1V44H24.42v2a1,1,0,0,0,1,1h14a1,1,0,0,0,1-1V44H42v4Zm55,3a1,1,0,0,1-1,1H45a1,1,0,0,1-1-1V23a1,1,0,0,1,1-1H59a1,1,0,0,1,1,1Z"/><path fill="#0a1827" d="M53,23H51a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToContact" class="contact_icon w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24"><g id="User_Info_Stack" data-name="User Info Stack"><path d="M22,17V5a2,2,0,0,0-2-2H2A2,2,0,0,0,0,5V17a2,2,0,0,0,2,2H20A2,2,0,0,0,22,17ZM7,7A2,2,0,1,1,5,9,2,2,0,0,1,7,7Zm4,7a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V13.8a1.74,1.74,0,0,1,1-1.57,7.08,7.08,0,0,1,3-.74,7.08,7.08,0,0,1,3,.74,1.74,1.74,0,0,1,1,1.57Zm7.5,1h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Zm0-3h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Zm0-3h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Z" style="fill:#44E99C"/><path d="M23,5.29V18a2,2,0,0,1-2,2H2.29A2,2,0,0,0,4,21H22a2,2,0,0,0,2-2V7A2,2,0,0,0,23,5.29Z" style="fill:#44E99C"/></g></svg>
-
+    <div
+      class="
+        intro_screen_2
+        h-screen
+        w-full
+        bg-deepBlue-300
+        fixed
+        z-30
+        transform
+        translate-y-full
+      "
+    ></div>
+    <div class="w-full h-screen bg-dark-500 p-2 sm:p-6 relative">
+      <div class="w-full h-full relative" id="host">
+        <div
+          class="
+            w-full
+            sm:w-1/2
+            h-16
+            flex
+            items-center
+            justify-around
+            py-2
+            px-4
+            sm:px-10
+            transform
+            border-t-2 border-lightWhite border-r-2 border-l-2
+            translate-x-0
+            sm:translate-x-1/2
+            bg-gray-900
+            z-10
+            fixed
+            sm:absolute
+            bottom-0
+            rounded-t-3xl
+            left-0
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x-on:click="scrollToHome"
+            width="16"
+            height="16"
+            class="home_icon w-8 h-8 sm:w-10 sm:h-10"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill="#4F9783"
+              fill-rule="nonzero"
+              d="M11.5,8 C12.3284271,8 13,8.67157288 13,9.5 L13,10 C13,11.9714437 11.14049,14 8,14 C4.85950997,14 3,11.9714437 3,10 L3,9.5 C3,8.67157288 3.67157288,8 4.5,8 L11.5,8 Z M8,1.5 C9.51878306,1.5 10.75,2.73121694 10.75,4.25 C10.75,5.76878306 9.51878306,7 8,7 C6.48121694,7 5.25,5.76878306 5.25,4.25 C5.25,2.73121694 6.48121694,1.5 8,1.5 Z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x-on:click="scrollToAbout"
+            class="about_icon w-8 h-8 sm:w-10 sm:h-10"
+            viewBox="0 0 520 520"
+          >
+            <g data-name="11. Info">
+              <circle cx="260" cy="260" r="230" fill="#FACF5A" />
+              <path
+                fill="#FACF5A"
+                d="M353.89257,164.16667,160.16991,349.62733,297.45829,486.91572A230.12211,230.12211,0,0,0,486.95608,297.23017Z"
+              />
+              <circle cx="260" cy="260" r="134.167" fill="#fff" />
+              <path
+                fill="#FACF5A"
+                d="M145,260A134.0751,134.0751,0,0,1,269.58333,126.31706c-3.17787-.22519-6.34814-.48373-9.58333-.48373a134.16667,134.16667,0,0,0,0,268.33334c3.23519,0,6.40546-.25854,9.58333-.48373A134.0751,134.0751,0,0,1,145,260Z"
+              />
+              <rect
+                width="38.333"
+                height="115"
+                x="240.833"
+                y="231.25"
+                fill="#FACF5A"
+                rx="19.167"
+                ry="19.167"
+              />
+              <path
+                fill="#FACF5A"
+                d="M250.41667,327.08333V250.41667a19.12154,19.12154,0,0,1,14.375-18.48875,18.93344,18.93344,0,0,0-23.95834,18.48875v76.66666a18.93344,18.93344,0,0,0,23.95834,18.48875A19.12154,19.12154,0,0,1,250.41667,327.08333Z"
+              />
+              <circle cx="260" cy="183.333" r="19.167" fill="#fbae04" />
+              <path
+                fill="#FACF5A"
+                d="M250.41667,183.33333a19.12153,19.12153,0,0,1,14.375-18.48874,19.16854,19.16854,0,1,0,0,36.97749A19.12154,19.12154,0,0,1,250.41667,183.33333Z"
+              />
+            </g>
+          </svg>
+          <!--            <svg xmlns="http://www.w3.org/2000/svg" x-on:click="scrollToWork"  class="work_icon w-8 h-8 sm:w-12 sm:h-12" viewBox="0 0 64 64"><g data-name="Layer 2"><polygon fill="#4B89AC" points="55 32.46 55 54 9 54 9 32.46 32 36 55 32.46"/><path fill="#4B89AC" d="M41,20H23a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H41a1,1,0,0,1,1,1v8A1,1,0,0,1,41,20ZM24,18H40V12H24Z"/><polygon fill="#4B89AC" points="58 18 58 32 55 32.46 32 36 9 32.46 6 32 6 18 58 18"/><rect width="4" height="8" x="30" y="32" fill="#e8af0a"/></g></svg>-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x-on:click="scrollToWork"
+            class="work_icon w-8 h-8 sm:w-10 sm:h-10"
+            data-name="Layer 1"
+            viewBox="0 0 64 64"
+          >
+            <path
+              fill="gray"
+              d="M3,43H61a0,0,0,0,1,0,0v4a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V43A0,0,0,0,1,3,43Z"
+            />
+            <rect width="58" height="3" x="3" y="43" fill="#6b6b6b" />
+            <rect width="52" height="32" x="5.83" y="11" fill="#94e6ff" />
+            <rect width="52" height="3" x="5.83" y="11" fill="#5cb7e6" />
+            <rect width="14" height="3" x="25.42" y="43" fill="#ffcc40" />
+            <rect
+              width="18"
+              height="32"
+              x="43"
+              y="21"
+              fill="#fc7a71"
+              rx="2"
+              ry="2"
+            />
+            <path
+              fill="#db584f"
+              d="M45,21H59a2,2,0,0,1,2,2v1a0,0,0,0,1,0,0H43a0,0,0,0,1,0,0V23A2,2,0,0,1,45,21Z"
+            />
+            <path
+              fill="#ebe3d8"
+              d="M43,49H61a0,0,0,0,1,0,0v2a2,2,0,0,1-2,2H45a2,2,0,0,1-2-2V49A0,0,0,0,1,43,49Z"
+            />
+            <path fill="#0a1827" d="M30,16h4a1,1,0,0,0,0-2H30a1,1,0,0,0,0,2Z" />
+            <path
+              fill="#0a1827"
+              d="M59,20h-.17V11a1,1,0,0,0-1-1h-52a1,1,0,0,0-1,1V42H3a1,1,0,0,0-1,1v4a3,3,0,0,0,3,3H42v1a3,3,0,0,0,3,3H59a3,3,0,0,0,3-3V23A3,3,0,0,0,59,20ZM6.83,12h50v8H45a3,3,0,0,0-3,3V42H6.83ZM26.42,44h12v1h-12ZM5,48a1,1,0,0,1-1-1V44H24.42v2a1,1,0,0,0,1,1h14a1,1,0,0,0,1-1V44H42v4Zm55,3a1,1,0,0,1-1,1H45a1,1,0,0,1-1-1V23a1,1,0,0,1,1-1H59a1,1,0,0,1,1,1Z"
+            />
+            <path fill="#0a1827" d="M53,23H51a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x-on:click="scrollToContact"
+            class="contact_icon w-8 h-8 sm:w-10 sm:h-10"
+            viewBox="0 0 24 24"
+          >
+            <g id="User_Info_Stack" data-name="User Info Stack">
+              <path
+                d="M22,17V5a2,2,0,0,0-2-2H2A2,2,0,0,0,0,5V17a2,2,0,0,0,2,2H20A2,2,0,0,0,22,17ZM7,7A2,2,0,1,1,5,9,2,2,0,0,1,7,7Zm4,7a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V13.8a1.74,1.74,0,0,1,1-1.57,7.08,7.08,0,0,1,3-.74,7.08,7.08,0,0,1,3,.74,1.74,1.74,0,0,1,1,1.57Zm7.5,1h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Zm0-3h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Zm0-3h-6a.5.5,0,0,1,0-1h6a.5.5,0,0,1,0,1Z"
+                style="fill: #44e99c"
+              />
+              <path
+                d="M23,5.29V18a2,2,0,0,1-2,2H2.29A2,2,0,0,0,4,21H22a2,2,0,0,0,2-2V7A2,2,0,0,0,23,5.29Z"
+                style="fill: #44e99c"
+              />
+            </g>
+          </svg>
         </div>
-    <div class="absolute scroller w-full h-full bg-lightWhite">
-        <div class="w-full h-full flex flex-col sm:flex-row bg-gray-100" id="home">
-            <div class="w-full sm:w-1/2 font-josefin text-xl sm:text-2xl font-bold h-full p-10 flex flex-col justify-center items-center ">
-                <div class="flex flex-col p-4 border-deepBlue-200 border-r-2 border-b-2">
+        <div class="absolute scroller w-full h-full bg-lightWhite">
+          <div
+            class="w-full h-full flex flex-col sm:flex-row bg-gray-100"
+            id="home"
+          >
+            <div
+              class="
+                w-full
+                sm:w-1/2
+                font-josefin
+                text-xl
+                sm:text-2xl
+                font-bold
+                h-full
+                p-10
+                flex flex-col
+                justify-center
+                items-center
+              "
+            >
+              <div
+                class="
+                  flex flex-col
+                  p-4
+                  border-deepBlue-200 border-r-2 border-b-2
+                "
+              >
                 <p class="home_text">" Hello You, I'm Zaw Lin Tun.</p>
-                <p class="home_text"> Nice to meet you!</p><p class="home_text">
-                I'm trying to be full-stack
-                web developer and 3D designer. "</p>
-                </div>
-
+                <p class="home_text">Nice to meet you!</p>
+                <p class="home_text">I'm full-stack web developer expertised in Laravel and I also have experiences with flutter. I believe that we can be a good team. Shall we grab a coffee and discuss what's on your mind?"</p>
+              </div>
             </div>
-            <div class="w-full sm:w-1/2 h-full pr-6 pl-6 pb-6 relative overflow-hidden">
-                <div class="bg-dark-400 w-full h-full flex items-center img-box inline-block ">
-                    <img src="public/images/8thNov.png" alt="hello" class="bg-cover img-box inline-block ">
-                </div>
+            <div
+              class="
+                w-full
+                sm:w-1/2
+                h-full
+                pr-6
+                pl-6
+                pb-6
+                relative
+                overflow-hidden
+              "
+            >
+              <div
+                class="
+                  bg-dark-400
+                  w-full
+                  h-full
+                  flex
+                  items-center
+                  img-box
+                  inline-block
+                "
+              >
+                <img
+                  src="public/images/8thNov.png"
+                  alt="hello"
+                  class="bg-cover img-box inline-block"
+                />
+              </div>
             </div>
-        </div>
-        <div class="w-full sm:h-full flex flex-col items-center bg-dark-400 overflow-hidden mb-4 sm:mb-0" id="about">
-           <div class="w-full h-16 text-2xl text-white font-extrabold font-mono bg-deepOrange-100 py-1 sm:h-24 flex items-center text-center justify-center">
-               <p>About Me</p>
-           </div>
-            <div class="w-full sm:h-full flex flex-col sm:flex-row items-center overflow-hidden">
-            <div class="w-full sm:w-1/2 items-center flex justify-center p-4  h-full overflow-hidden">
-               <div class="w-full h-full flex justify-center items-center about-content inline-block">
-               <img src="public/images/8thNov_Pc-removebg-preview.png" alt="pc" class="about-content inline-block w-full">
-               </div>
-           </div>
-            <div class="w-full sm:w-1/2 h-full  flex items-center justify-between flex-col p-2 sm:p-5 font-josefin text-xl relative">
-                <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.4);" class="ml-0 mt-0  sm:-ml-1/10 sm:mt-1/10 about-box about-text_1 w-11/12 sm:w-1/2 h-5/7 block sm:absolute sm:top-0 sm:left-0 text-md sm:text-xl bg-deepBlue-300 text-white break-words p-5  rounded-3xl flex flex-col justify-around">
-                        <p class="text-xl about-text text-center text-deepOrange-100">Web Experiences</p>
-                        <p class="about-text">Laravel(3years)</p>
-                        <p class="about-text">Livewire(6months)</p>
-                        <p class="about-text">PHP(3years)</p>
-                        <p class="about-text" >HTML5(3years)</p>
-                        <p class="about-text">Css3(3years)</p>
-                        <p class="about-text">VueJs(2years)</p>
-                        <p class="about-text">AlpineJs(1year)</p>
-                        <p class="about-text">Bootstrap(1year)</p>
-                        <p class="about-text">TailwindCss(1year)</p>
+          </div>
+          <div
+            class="
+              w-full
+              sm:h-full
+              flex flex-col
+              items-center
+              bg-dark-400
+              overflow-hidden
+              mb-4
+              sm:mb-0
+            "
+            id="about"
+          >
+            <div
+              class="
+                w-full
+                h-16
+                text-2xl text-white
+                font-extrabold font-mono
+                bg-deepOrange-100
+                py-1
+                sm:h-24
+                flex
+                items-center
+                text-center
+                justify-center
+              "
+            >
+              <p>About Me</p>
+            </div>
+            <div
+              class="
+                w-full
+                sm:h-full
+                flex flex-col
+                sm:flex-row
+                items-center
+                overflow-hidden
+              "
+            >
+              <div
+                class="
+                  w-full
+                  sm:w-1/2
+                  items-center
+                  flex
+                  justify-center
+                  p-4
+                  h-full
+                  overflow-hidden
+                "
+              >
+                <div
+                  class="
+                    w-full
+                    h-full
+                    flex
+                    justify-center
+                    items-center
+                    about-content
+                    inline-block
+                  "
+                >
+                  <img
+                    src="public/images/8thNov_Pc-removebg-preview.png"
+                    alt="pc"
+                    class="about-content inline-block w-full"
+                  />
+                </div>
+              </div>
+              <div
+                class="
+                  w-full
+                  sm:w-1/2
+                  h-full
+                  flex
+                  items-center
+                  justify-between
+                  flex-col
+                  p-2
+                  sm:p-5
+                  font-josefin
+                  text-xl
+                  relative
+                "
+              >
+                <div
+                  style="box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.4)"
+                  class="
+                    ml-0
+                    mt-0
+                    sm:-ml-1/10 sm:mt-1/10
+                    about-box
+                    about-text_1
+                    w-11/12
+                    sm:w-1/2
+                    h-5/7
+                    block
+                    sm:absolute sm:top-0 sm:left-0
+                    text-md
+                    sm:text-xl
+                    bg-deepBlue-300
+                    text-white
+                    break-words
+                    p-5
+                    rounded-3xl
+                    flex flex-col
+                    justify-around
+                  "
+                >
+                  <p class="text-xl about-text text-center text-deepOrange-100">
+                    Web Experiences
+                  </p>
+                  <p class="about-text">-Laravel (4 years)</p>
+                  <p class="about-text">-Livewire (6 months)</p>
+                  <p class="about-text">-PHP (4 years)</p>
+                  <p class="about-text">-HTML5 (3 years)</p>
+                  <p class="about-text">-Css3 (3 years)</p>
+                  <p class="about-text">-VueJs (2 years)</p>
+                  <p class="about-text">-AlpineJs (1 year)</p>
+                  <p class="about-text">-ThreeJs (1 year)</p>
+                  <p class="about-text">-TailwindCss (1year)</p>
+                  <p class="about-text">-Dart (1 year)</p>
+                </div>
+                <div
+                  style="box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.4)"
+                  class="
+                    mt-0
+                    ml-0
+                    sm:mt-24/100 sm:ml-28/100
+                    about-box
+                    about-text_1
+                    sm:absolute
+                    top-0
+                    left-0
+                    sm:mt-0 sm:mb-0
+                    mt-2
+                    mb-2
+                    text-md
+                    bg-gray-500
+                    text-white
+                    rounded-3xl
+                    break-words
+                    p-5
+                    w-11/12
+                    sm:w-1/2
+                    h-auto
+                    sm:h-5/7
+                    flex flex-col
+                    justify-between
+                  "
+                >
+                  <div class="flex flex-col w-full h-1/2">
+                    <p
+                      class="
+                        text-xl
+                        about-text_1
+                        text-center text-deepOrange-100
+                      "
+                    >
+                      CrossPlatform Experiences
+                    </p>
+                    <p class="about-text_1">-Flutter(1 year)</p>
+                  </div>
+                  <div class="flex flex-col w-full h-1/2 mt-2 sm:mt-0">
+                    <p
+                      class="
+                        text-xl
+                        about-text_1
+                        text-center text-deepOrange-100
+                      "
+                    >
+                      3D design Experiences
+                    </p>
+                    <p class="about-text_1">-Blender(1 year)</p>
+                  </div>
+                </div>
+                <!--                    <p x-on:click="showWeb = !showWeb;" class="cursor-pointer">Web Experiences</p>-->
+                <!--                    <p x-show="showWeb" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 origin-bottom-right transform  scale-0" x-transition:enter-end="opacity-100 origin-bottom-right transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 origin-bottom-right transform scale-100" x-transition:leave-end="opacity-0 origin-bottom-right transform scale-0">sdfjlskdjflwerwqerwerwer</p>-->
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex flex-col relative work" id="work">
+            <div
+              class="
+                font-mono
+                bg-deepPurple-300
+                text-white text-2xl
+                font-extrabold
+                h-16
+                sm:h-24
+                w-full
+                flex
+                items-center
+                text-center
+                justify-center
+              "
+            >
+              <p>My Projects</p>
+            </div>
+            <div
+              class="flex flex-col w-full bg-dark-300 overflow-hidden"
+              id="project_1"
+            >
+              <div
+                class="
+                  h-full
+                  w-full
+                  p-4
+                  flex flex-col
+                  sm:flex-row
+                  items-center
+                  justify-center
+                "
+              >
+                <div
+                  class="
+                    w-full
+                    sm:w-1/2
+                    h-full
+                    flex
+                    items-center
+                    justify-center
+                    overflow-hidden
+                  "
+                  id="project_1_video"
+                >
+                  <video
+                    src="public/videos/InShot_20201005_215306324.mp4"
+                    controls
+                    class="w-full outline-none"
+                  ></video>
+                </div>
+                <div
+                  class="
+                    w-full
+                    sm:w-1/2
+                    h-full
+                    flex
+                    p-0
+                    sm:p-4
+                    items-center
+                    justify-center
+                  "
+                >
+                  <div class="w-full flex flex-col h-full bg-lightWhite">
+                    <div
+                      class="
+                        project_1_content
+                        w-full
+                        h-1/10
+                        bg-deepPurple-400
+                        text-white text-xl
+                        py-2
+                        sm:text-2xl
+                        font-josefin
+                        flex
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <p class="text-center">"ShopMe" E-Commerce website</p>
                     </div>
-                    <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.4);" class="mt-0 ml-0 sm:mt-24/100 sm:ml-28/100 about-box about-text_1 sm:absolute top-0 left-0 sm:mt-0 sm:mb-0 mt-2 mb-2 text-md bg-gray-500 text-white rounded-3xl break-words p-5 w-11/12 sm:w-1/2 h-auto sm:h-5/7 flex flex-col justify-between">
-                       <div class="flex flex-col w-full h-1/2 "> <p class="text-xl about-text_1 text-center text-deepOrange-100">Mobile Experiences</p>
-                        <p class="about-text_1">Flutter(6months)</p>
-                       </div>
-                        <div class="flex flex-col w-full h-1/2 mt-2 sm:mt-0"> <p class="text-xl about-text_1 text-center text-deepOrange-100">3D design Experiences</p>
-                            <p class="about-text_1">Blender(1year)</p>
-                        </div>
+                    <div
+                      class="
+                        flex flex-col
+                        font-josefin
+                        p-4
+                        text-lg
+                        w-full
+                        text-white
+                      "
+                    >
+                      <div
+                        class="
+                          project_1_content
+                          w-full
+                          h-full
+                          p-4
+                          bg-deepPurple-300
+                        "
+                      >
+                        <p class="break-words">
+                          Online Selling products such as
+                          Shirts,pants,longCoat,footWear
+                        </p>
+                        <p>Explore the items. Search By categories.</p>
+                        <p>
+                          Add To Your carts or add to your favourites for
+                          next-time buying
+                        </p>
+                        <p>Customer-support with Real-Time chat</p>
+                        <p>Online Payment with your card</p>
+                        <p class="text-deepOrange-200 italic">
+                          Admin DashBoard
+                        </p>
+                      </div>
                     </div>
-<!--                    <p x-on:click="showWeb = !showWeb;" class="cursor-pointer">Web Experiences</p>-->
-<!--                    <p x-show="showWeb" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 origin-bottom-right transform  scale-0" x-transition:enter-end="opacity-100 origin-bottom-right transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 origin-bottom-right transform scale-100" x-transition:leave-end="opacity-0 origin-bottom-right transform scale-0">sdfjlskdjflwerwqerwerwer</p>-->
-            </div>
-            </div>
-        </div>
-        <div class="w-full flex flex-col relative work" id="work">
-            <div class=" font-mono bg-deepPurple-300 text-white text-2xl font-extrabold h-16 sm:h-24 w-full flex items-center text-center justify-center">
-                <p>My Projects</p>
-            </div>
-            <div class="flex flex-col w-full bg-dark-300 overflow-hidden" id="project_1">
-
-
-                <div class="h-full w-full p-4 flex flex-col sm:flex-row items-center justify-center">
-                <div class="w-full sm:w-1/2 h-full flex items-center justify-center overflow-hidden" id="project_1_video">
-                    <video src="public/videos/InShot_20201005_215306324.mp4" controls class="w-full outline-none "></video>
-                </div>
-                <div class="w-full sm:w-1/2 h-full flex p-0 sm:p-4 items-center justify-center">
-                    <div class="w-full flex flex-col h-full bg-lightWhite">
-                        <div class="project_1_content w-full h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl font-josefin flex items-center justify-center">
-                               <p class="text-center">"ShopMe" E-Commerce website</p>
-                        </div>
-                        <div class="flex flex-col font-josefin p-4 text-lg w-full text-white">
-                            <div class="project_1_content w-full h-full p-4 bg-deepPurple-300">
-                                <p class="break-words">Online Selling products such as Shirts,pants,longCoat,footWear</p>
-                            <p>Explore the items. Search By categories.</p>
-                            <p>Add To Your carts or add to your favourites for next-time buying</p>
-                            <p>Customer-support with Real-Time chat</p>
-                            <p>Online Payment with your card</p>
-                            <p class="text-deepOrange-200 italic">Admin DashBoard</p>
-                            </div>
-                        </div>
-                        <div class="project_1_content work_1 flex flex-col font-josefin px-4 py-10 text-lg">
-                            <p>Language used - Php, Html5, Css3, Js</p>
-                            <p>Framework - Laravel, Livewire, TailwindCss, AlpineJs</p>
-                            <p>Others - Laravel Socialite, Laravel Cashier(Stripe), Pusher for <em class="font-bold">realtime messages</em></p>
-                        </div>
-                        <div class="project_1_content font-josefin text-lg font-bold italic w-full flex mb-2 items-center justify-center">
-                            <a href="http://cryptic-dusk-59239.herokuapp.com" class="px-3 py-2 bg-deepPurple-300 text-white rounded-xl">Go to Shopping</a>
-                        </div>
-                </div>
-            </div>
-                </div>
-            </div>
-            <div class="flex flex-col-reverse sm:flex-row h-full w-full p-0 sm:p-6 overflow-hidden" id="project_2">
-               <div class="w-full sm:w-1/2 h-full p-4 flex items-center justify-center">
-                   <div class="w-full flex flex-col h-full bg-dark-300 p-0 sm:p-4 justify-center items-center">
-                       <div class="project_2_content w-full p-4 h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl  font-josefin flex items-center justify-center">
-                           <p class="text-center">"ShopMe" Flutter Android App Version</p>
-                       </div>
-                       <div class="project_2_content flex flex-col font-josefin bg-lightWhite p-4 text-lg w-full text-white">
-                           <div class="project_2_content w-full h-full p-4 bg-deepPurple-300">
-                               <p>Android App that has same functions as 'ShopMe' website.</p>
-                               <p>But real-time chat and admin dashboard is not included.</p>
-                           </div>
-                       </div>
-                       <div class="project_2_content work_1 w-full flex flex-col font-josefin px-4 py-10 text-lg bg-lightWhite">
-                           <p>Language used - Dart,Php</p>
-                           <p class="break-words">Framework - Laravel(backend),Flutter(Front-end)</p>
-
-                       </div>
-                       <div class="project_2_content font-josefin text-lg font-bold italic w-full py-4 bg-lightWhite flex items-center justify-center">
-                           <a href="https://drive.google.com/file/d/1VBrMnQ621QBHSoBDEDF2ez7jhcSJdBPq/view" class="px-3 py-2 bg-deepPurple-300 text-white rounded-xl">Download the App</a>
-                       </div>
-                   </div>
-               </div>
-                <div class="w-full sm:w-1/2 h-full flex items-center justify-center overflow-hidden" id="project_2_video">
-                    <video src="public/videos/InShot_20201020_235117243.mp4" controls class="w-full outline-none "></video>
-                </div>
-            </div>
-            <div class="flex flex-col w-full bg-dark-300 overflow-hidden" id="project_3">
-                <div class="h-full w-full p-4 flex flex-col sm:flex-row items-center justify-center">
-                    <div class="w-full sm:w-1/2 h-full flex items-center justify-center overflow-hidden" id="project_3_video">
-                        <video src="public/videos/InShot_20201115_155509611.mp4" controls class="w-full outline-none "></video>
+                    <div
+                      class="
+                        project_1_content
+                        work_1
+                        flex flex-col
+                        font-josefin
+                        px-4
+                        py-10
+                        text-lg
+                      "
+                    >
+                      <p>Language used - Php, Html5, Css3, Js</p>
+                      <p>
+                        Framework - Laravel, Livewire, TailwindCss, AlpineJs
+                      </p>
+                      <p>
+                        Others - Laravel Socialite, Laravel Cashier(Stripe),
+                        Pusher for <em class="font-bold">realtime messages</em>
+                      </p>
                     </div>
-                    <div class="w-full sm:w-1/2 h-full flex p-0 sm:p-4 items-center justify-center text-lg">
-                        <div class="project_3_content w-full flex flex-col h-full bg-lightWhite">
-                            <div class="project_3_content w-full h-1/10 bg-deepPurple-400 text-white text-xl py-2 sm:text-2xl font-josefin flex items-center justify-center">
-                                <p class="text-center">"YCC Social Group" website</p>
-                            </div>
-                            <div class="flex flex-col font-josefin p-4 text-lg w-full text-white">
-                                <div class="project_3_content w-full h-full p-4 bg-deepPurple-300">
-                                    <p>Website that let only students and teachers of the campus communicate with each other easily</p>
-                                    <p>Follow your friends.</p>
-                                    <p>Create Post and let your followers know it and comment on it.</p>
-                                    <p>Get the feedback from your teachers.</p>
-                                    <p>Send real-time messages privately to your friends.</p>
-                                    <p>Oh there's real-time Group Chat Session that will not record the messages</p>
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="project_3_content work_1 flex flex-col font-josefin px-4 py-10 ">
-                                <p class="italic font-bold">This project is made as a group project.My Other team member is Ma Myat Mon Kyaw.</p>
-                                <p>Language used - Php, Html5, Css3, Js</p>
-                                <p>Framework - Laravel, VueJs , BootStrap </p>
-                                <p>Others - Pusher for <em class="font-bold text-deepOrange-100">realtime messages and realtime notifications</em></p>
-                            </div>
-                            <div class="project_3_content font-josefin font-bold italic w-full py-2 flex items-center justify-center">
-                                <a href="http://wit2020-user14.webstarterz.com" class="px-3 py-2 bg-deepPurple-300 text-white rounded-xl">Go to YCC Social Group</a>
-                            </div>
-                        </div>
+                    <div
+                      class="
+                        project_1_content
+                        font-josefin
+                        text-lg
+                        font-bold
+                        italic
+                        w-full
+                        flex
+                        mb-2
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <a
+                        href="http://cryptic-dusk-59239.herokuapp.com"
+                        class="
+                          px-3
+                          py-2
+                          bg-deepPurple-300
+                          text-white
+                          rounded-xl
+                        "
+                        >Go to Shopping</a
+                      >
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div
+              class="
+                flex flex-col-reverse
+                sm:flex-row
+                h-full
+                w-full
+                p-0
+                sm:p-6
+                overflow-hidden
+              "
+              id="project_2"
+            >
+              <div
+                class="
+                  w-full
+                  sm:w-1/2
+                  h-full
+                  p-4
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <div
+                  class="
+                    w-full
+                    flex flex-col
+                    h-full
+                    bg-dark-300
+                    p-0
+                    sm:p-4
+                    justify-center
+                    items-center
+                  "
+                >
+                  <div
+                    class="
+                      project_2_content
+                      w-full
+                      p-4
+                      h-1/10
+                      bg-deepPurple-400
+                      text-white text-xl
+                      py-2
+                      sm:text-2xl
+                      font-josefin
+                      flex
+                      items-center
+                      justify-center
+                    "
+                  >
+                    <p class="text-center">
+                      "ShopMe" Flutter Android App Version
+                    </p>
+                  </div>
+                  <div
+                    class="
+                      project_2_content
+                      flex flex-col
+                      font-josefin
+                      bg-lightWhite
+                      p-4
+                      text-lg
+                      w-full
+                      text-white
+                    "
+                  >
+                    <div
+                      class="
+                        project_2_content
+                        w-full
+                        h-full
+                        p-4
+                        bg-deepPurple-300
+                      "
+                    >
+                      <p>
+                        Android App that has same functions as 'ShopMe' website.
+                      </p>
+                      <p>
+                        But real-time chat and admin dashboard is not included.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="
+                      project_2_content
+                      work_1
+                      w-full
+                      flex flex-col
+                      font-josefin
+                      px-4
+                      py-10
+                      text-lg
+                      bg-lightWhite
+                    "
+                  >
+                    <p>Language used - Dart,Php</p>
+                    <p class="break-words">
+                      Framework - Laravel(backend),Flutter(Front-end)
+                    </p>
+                  </div>
+                  <div
+                    class="
+                      project_2_content
+                      font-josefin
+                      text-lg
+                      font-bold
+                      italic
+                      w-full
+                      py-4
+                      bg-lightWhite
+                      flex
+                      items-center
+                      justify-center
+                    "
+                  >
+                    <a
+                      href="https://drive.google.com/file/d/1VBrMnQ621QBHSoBDEDF2ez7jhcSJdBPq/view"
+                      class="px-3 py-2 bg-deepPurple-300 text-white rounded-xl"
+                      >Download the App</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="
+                  w-full
+                  sm:w-1/2
+                  h-full
+                  flex
+                  items-center
+                  justify-center
+                  overflow-hidden
+                "
+                id="project_2_video"
+              >
+                <video
+                  src="public/videos/InShot_20201020_235117243.mp4"
+                  controls
+                  class="w-full outline-none"
+                ></video>
+              </div>
+            </div>
+            <div
+              class="flex flex-col w-full bg-dark-300 overflow-hidden"
+              id="project_3"
+            >
+              <div
+                class="
+                  h-full
+                  w-full
+                  p-4
+                  flex flex-col
+                  sm:flex-row
+                  items-center
+                  justify-center
+                "
+              >
+                <div
+                  class="
+                    w-full
+                    sm:w-1/2
+                    h-full
+                    flex
+                    items-center
+                    justify-center
+                    overflow-hidden
+                  "
+                  id="project_3_video"
+                >
+                  <video
+                    src="public/videos/InShot_20201115_155509611.mp4"
+                    controls
+                    class="w-full outline-none"
+                  ></video>
+                </div>
+                <div
+                  class="
+                    w-full
+                    sm:w-1/2
+                    h-full
+                    flex
+                    p-0
+                    sm:p-4
+                    items-center
+                    justify-center
+                    text-lg
+                  "
+                >
+                  <div
+                    class="
+                      project_3_content
+                      w-full
+                      flex flex-col
+                      h-full
+                      bg-lightWhite
+                    "
+                  >
+                    <div
+                      class="
+                        project_3_content
+                        w-full
+                        h-1/10
+                        bg-deepPurple-400
+                        text-white text-xl
+                        py-2
+                        sm:text-2xl
+                        font-josefin
+                        flex
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <p class="text-center">"YCC Social Group" website</p>
+                    </div>
+                    <div
+                      class="
+                        flex flex-col
+                        font-josefin
+                        p-4
+                        text-lg
+                        w-full
+                        text-white
+                      "
+                    >
+                      <div
+                        class="
+                          project_3_content
+                          w-full
+                          h-full
+                          p-4
+                          bg-deepPurple-300
+                        "
+                      >
+                        <p>
+                          Website that let only students and teachers of the
+                          campus communicate with each other easily
+                        </p>
+                        <p>Follow your friends.</p>
+                        <p>
+                          Create Post and let your followers know it and comment
+                          on it.
+                        </p>
+                        <p>Get the feedback from your teachers.</p>
+                        <p>
+                          Send real-time messages privately to your friends.
+                        </p>
+                        <p>
+                          Oh there's real-time Group Chat Session that will not
+                          record the messages
+                        </p>
+                        <p></p>
+                      </div>
+                    </div>
+                    <div
+                      class="
+                        project_3_content
+                        work_1
+                        flex flex-col
+                        font-josefin
+                        px-4
+                        py-10
+                      "
+                    >
+                      <p class="italic font-bold">
+                        This project is made as a group project.My Other team
+                        member is Ma Myat Mon Kyaw.
+                      </p>
+                      <p>Language used - Php, Html5, Css3, Js</p>
+                      <p>Framework - Laravel, VueJs , BootStrap</p>
+                      <p>
+                        Others - Pusher for
+                        <em class="font-bold text-deepOrange-100"
+                          >realtime messages and realtime notifications</em
+                        >
+                      </p>
+                    </div>
+                    <div
+                      class="
+                        project_3_content
+                        font-josefin font-bold
+                        italic
+                        w-full
+                        py-2
+                        flex
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <a
+                        href="http://wit2020-user14.webstarterz.com"
+                        class="
+                          px-3
+                          py-2
+                          bg-deepPurple-300
+                          text-white
+                          rounded-xl
+                        "
+                        >Go to YCC Social Group</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex flex-col" id="my_art">
+            <div
+              class="
+                w-full
+                h-16
+                text-2xl
+                font-extrabold font-mono
+                bg-deepPurple-300
+                text-white
+                py-1
+                sm:h-24
+                flex
+                items-center
+                text-center
+                justify-center
+              "
+            >
+              <p>My Arts</p>
+            </div>
+            <div
+              class="w-full custom_grid p-4 sm:p-10"
+              style="
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-rows: minmax(100px, 1fr);
+                grid-auto-flow: dense;
+                grid-gap: 10px;
+              "
+            >
+              <div class="art_1 h-full flex items-center justify-center">
+                <a href="public/images/6thOct.png" target="_blank">
+                  <img
+                    src="public/images/6thOct.png"
+                    class="thumbnail"
+                    alt="art_1"
+                  />
+                </a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/7thOct_1.png" target="_blank">
+                  <img src="public/images/7thOct_1.png" alt="art_2"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/9th9_2.png" target="_blank">
+                  <img src="public/images/9th9_2.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/24thOct_03.png" target="_blank">
+                  <img src="public/images/24thOct_03.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/29thSep_03.png" target="_blank">
+                  <img src="public/images/29thSep_03.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/30thAugust_04_transparent.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/30thAugust_04_transparent.png"
+                    alt="art_3"
+                    class="border"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/August20th_03.png" target="_blank">
+                  <img src="public/images/August20th_03.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/coffee_2.png" target="_blank">
+                  <img src="public/images/coffee_2.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/June18_18thOct_version_04_night.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/June18_18thOct_version_04_night.png"
+                    alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/June18_18thOct_version_16_night.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/June18_18thOct_version_16_night.png"
+                    alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/June18_18thOct_version_03.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/June18_18thOct_version_03.png"
+                    alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/mdy_palace_wall_12_with_stroke0.2.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/mdy_palace_wall_12_with_stroke0.2.png"
+                    alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a href="public/images/residence_02.png" target="_blank">
+                  <img src="public/images/residence_02.png" alt="art_3"
+                /></a>
+              </div>
+              <div class="art_1 flex items-center justify-center">
+                <a
+                  href="public/images/shopme_24thSep_without%20Transparent.png"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/shopme_24thSep_without%20Transparent.png"
+                    alt="art_3"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-1/3 p-2 text-white" id="contact">
+            <div
+              class="
+                w-full
+                h-full
+                bg-deepGreen-200
+                font-josefin
+                p-2
+                text-xl
+                flex flex-col
+                sm:flex-row
+                justify-evenly
+                items-start
+                sm:items-center sm:mb-0
+                mb-24/100
+              "
+            >
+              <div class="flex items-center justify-center">
+                <img
+                  src="public/images/email.svg"
+                  alt=""
+                  class="w-6 sm:w-12 mr-2"
+                /><a href="mailto:zlintun001@gmail.com">zlintun001@gmail.com</a>
+              </div>
+              <div class="flex items-center justify-center">
+                <img
+                  src="public/images/outlook.svg"
+                  alt=""
+                  class="w-6 sm:w-12 mr-2"
+                /><a href="mailto:zawlintun@utycc.edu.mm"
+                  >zawlintun@utycc.edu.mm</a
+                >
+              </div>
+              <div class="flex items-center justify-center">
+                <img
+                  src="public/images/instagram.svg"
+                  alt=""
+                  class="w-6 sm:w-12 mr-2"
+                /><a href="https://www.instagram.com/zaw_lin_tun_ycc/"
+                  >zaw_lin_tun_ycc</a
+                >
+              </div>
+              <div class="flex items-center justify-center">
+                <img
+                  src="public/images/phone.svg"
+                  alt=""
+                  class="w-6 sm:w-12 mr-2"
+                /><a href="tel:+959787402700">+959787402700</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="w-full flex flex-col" id="my_art">
-            <div class="w-full h-16 text-2xl font-extrabold font-mono bg-deepPurple-300 text-white py-1 sm:h-24 flex items-center text-center justify-center">
-                <p>My Arts</p>
-            </div>
-            <div class="w-full custom_grid p-4 sm:p-10" style="position: relative;display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr));grid-template-rows: minmax(100px,1fr);grid-auto-flow: dense; grid-gap: 10px;">
-                <div class="art_1  h-full flex items-center justify-center">
-                    <a href="public/images/6thOct.png" target="_blank">
-                        <img src="public/images/6thOct.png" class="thumbnail" alt="art_1">
-                    </a>
-                </div>
-                <div class="art_1   flex items-center justify-center">
-                    <a href="public/images/7thOct_1.png" target="_blank"> <img src="public/images/7thOct_1.png" alt="art_2"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/9th9_2.png" target="_blank"> <img src="public/images/9th9_2.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/24thOct_03.png" target="_blank"> <img src="public/images/24thOct_03.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/29thSep_03.png" target="_blank"> <img src="public/images/29thSep_03.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/30thAugust_04_transparent.png" target="_blank"> <img src="public/images/30thAugust_04_transparent.png" alt="art_3" class="border"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/August20th_03.png" target="_blank"> <img src="public/images/August20th_03.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/coffee_2.png" target="_blank"> <img src="public/images/coffee_2.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/June18_18thOct_version_04_night.png" target="_blank"> <img src="public/images/June18_18thOct_version_04_night.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/June18_18thOct_version_16_night.png" target="_blank"> <img src="public/images/June18_18thOct_version_16_night.png" alt="art_3"></a>
-                </div>  <div class="art_1  flex items-center justify-center">
-                <a href="public/images/June18_18thOct_version_03.png" target="_blank"> <img src="public/images/June18_18thOct_version_03.png" alt="art_3"></a>
-            </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/mdy_palace_wall_12_with_stroke0.2.png" target="_blank"> <img src="public/images/mdy_palace_wall_12_with_stroke0.2.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/residence_02.png" target="_blank"> <img src="public/images/residence_02.png" alt="art_3"></a>
-                </div>
-                <div class="art_1  flex items-center justify-center">
-                    <a href="public/images/shopme_24thSep_without%20Transparent.png" target="_blank"> <img src="public/images/shopme_24thSep_without%20Transparent.png" alt="art_3"></a>
-                </div>
-
-            </div>
-        </div>
-        <div class="w-full h-1/3 p-2 text-white" id="contact">
-            <div class="w-full h-full bg-deepGreen-200 font-josefin p-2 text-xl flex flex-col sm:flex-row justify-evenly items-start sm:items-center sm:mb-0 mb-24/100">
-            <div class="flex items-center justify-center"><img src="public/images/email.svg" alt="" class="w-6 sm:w-12 mr-2"><a href="mailto:zlintun001@gmail.com">zlintun001@gmail.com</a> </div>
-            <div class="flex items-center justify-center"><img src="public/images/outlook.svg" alt="" class="w-6 sm:w-12 mr-2"><a href="mailto:zawlintun@utycc.edu.mm">zawlintun@utycc.edu.mm</a> </div>
-            <div class="flex items-center justify-center"><img src="public/images/instagram.svg" alt="" class="w-6 sm:w-12 mr-2"><a href="https://www.instagram.com/zaw_lin_tun_ycc/">zaw_lin_tun_ycc</a> </div>
-                <div class="flex items-center justify-center"><img src="public/images/phone.svg" alt="" class="w-6 sm:w-12 mr-2"><a href="tel:+959787402700">+959787402700</a></div>
-            </div>
-        </div>
+      </div>
     </div>
-    </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.3/smooth-scrollbar.js"></script>
-<script src="ScrollToPlugin3.min.js"></script>
-<script src="vanilla-tilt.js"></script>
-<!--<script type="module" src="index.js"></script>-->
-<script>
-    // import Scrollbar from "/smooth-scrollbar/index";
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.3/smooth-scrollbar.js"></script>
+    <script src="ScrollToPlugin3.min.js"></script>
+    <script src="vanilla-tilt.js"></script>
+    <!--<script type="module" src="index.js"></script>-->
+    <script>
+      // import Scrollbar from "/smooth-scrollbar/index";
 
-    VanillaTilt.init(document.querySelectorAll(".about-box"), {
+      VanillaTilt.init(document.querySelectorAll(".about-box"), {
         max: 25,
-        speed: 300
-    });
-    gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
+        speed: 300,
+      });
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    // Setup
-    const scroller = document.querySelector('.scroller');
+      // Setup
+      const scroller = document.querySelector(".scroller");
 
-    const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.06, alwaysShowTracks: true });
+      const bodyScrollBar = Scrollbar.init(scroller, {
+        damping: 0.06,
+        alwaysShowTracks: true,
+      });
 
-    ScrollTrigger.scrollerProxy(".scroller", {
+      ScrollTrigger.scrollerProxy(".scroller", {
         scrollTop(value) {
-            if (arguments.length) {
-                bodyScrollBar.scrollTop = value;
-            }
-            return bodyScrollBar.scrollTop;
+          if (arguments.length) {
+            bodyScrollBar.scrollTop = value;
+          }
+          return bodyScrollBar.scrollTop;
         },
+      });
+      let offset = gsap.getProperty(scroller, "y");
 
-    });
-    let offset = gsap.getProperty(scroller, "y");
-
-
-    bodyScrollBar.addListener(() => {
+      bodyScrollBar.addListener(() => {
         ScrollTrigger.update();
-    });
-    bodyScrollBar.track.xAxis.element.remove()
+      });
+      bodyScrollBar.track.xAxis.element.remove();
 
-    ScrollTrigger.defaults({ scroller: scroller });
+      ScrollTrigger.defaults({ scroller: scroller });
 
-//     ScrollTrigger.create({
-//         trigger:'#work',
-//         start: "top top",
-//         // endTrigger: "#work",
-//         end: "bottom center",
-//         onToggle: self => carousel(self.isActive),
-//         onUpdate: self => {
-//             console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
-//         }
-//     });
-// function carousel(isActive){
-//     let array=document.querySelectorAll('.slider')
-//     console.log(array.length)
-//    array.forEach((e)=>{
-//        console.log(e.nextElementSibling);
-//        console.log(e.lastElementChild);
-//        gsap.to(e.nextElementSibling,{x:'0%',duration:1,delay:2.5});
-//    })
-// }
-    // The actual animations and ScrollTriggers
-    let tl2=gsap.timeline({defaults:{ease:'power1.out'}});
-    tl2.from('.greeting_text',{y:'100%',autoAlpha:0,duration: 1.5});
-    tl2.to('.intro_screen_1',{y:'-100%',duration:1.3});
-    tl2.to('.intro_screen_2',{y:'-100%',duration:1.25},'-=1.15');
+      //     ScrollTrigger.create({
+      //         trigger:'#work',
+      //         start: "top top",
+      //         // endTrigger: "#work",
+      //         end: "bottom center",
+      //         onToggle: self => carousel(self.isActive),
+      //         onUpdate: self => {
+      //             console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
+      //         }
+      //     });
+      // function carousel(isActive){
+      //     let array=document.querySelectorAll('.slider')
+      //     console.log(array.length)
+      //    array.forEach((e)=>{
+      //        console.log(e.nextElementSibling);
+      //        console.log(e.lastElementChild);
+      //        gsap.to(e.nextElementSibling,{x:'0%',duration:1,delay:2.5});
+      //    })
+      // }
+      // The actual animations and ScrollTriggers
+      let tl2 = gsap.timeline({ defaults: { ease: "power1.out" } });
+      tl2.from(".greeting_text", { y: "100%", autoAlpha: 0, duration: 1.5 });
+      tl2.to(".intro_screen_1", { y: "-100%", duration: 1.3 });
+      tl2.to(".intro_screen_2", { y: "-100%", duration: 1.25 }, "-=1.15");
 
-    gsap.from('.home_text', {
-        duration:1,
+      gsap.from(".home_text", {
+        duration: 1,
         stagger: 0.25,
-        y:'100%',
-        autoAlpha:0,
-        delay:2.3,
-        ease:'power1.out',
+        y: "100%",
+        autoAlpha: 0,
+        delay: 2.3,
+        ease: "power1.out",
         scrollTrigger: {
-            trigger:"#home",
-            start:"-1% 0",
-            end:"80% top",
-            // markers: true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.to('.home_icon', {
-        duration:0.5,
-        y:'-10%',
-        delay:2.3,
-        ease:'power1.out',
+          trigger: "#home",
+          start: "-1% 0",
+          end: "80% top",
+          // markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.to(".home_icon", {
+        duration: 0.5,
+        y: "-10%",
+        delay: 2.3,
+        ease: "power1.out",
         scrollTrigger: {
-            trigger:"#home",
-            start:"-1% 0",
-            end:"80% top",
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.to('.about_icon', {
-        duration:0.5,
-        y:'-10%',
+          trigger: "#home",
+          start: "-1% 0",
+          end: "80% top",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.to(".about_icon", {
+        duration: 0.5,
+        y: "-10%",
 
-        ease:'power1.out',
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about",
-            start: "-10% center+=10",
-            end:"50% top",
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.to('.work_icon', {
-        duration:0.5,
-        y:'-10%',
+          trigger: "#about",
+          start: "-10% center+=10",
+          end: "50% top",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.to(".work_icon", {
+        duration: 0.5,
+        y: "-10%",
 
-        ease:'power1.out',
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: "#work",
-            start: "top center+=20",
-            end:"98% bottom",
-            // markers:true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.to('.contact_icon', {
-        duration:0.5,
-        y:'-10%',
-        ease:'power1.out',
+          trigger: "#work",
+          start: "top center+=20",
+          end: "98% bottom",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.to(".contact_icon", {
+        duration: 0.5,
+        y: "-10%",
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: "#contact",
-            start: "-5% bottom",
-            end:"bottom 90%",
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.from('.img-box', {
-        duration:1.2,
+          trigger: "#contact",
+          start: "-5% bottom",
+          end: "bottom 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".img-box", {
+        duration: 1.2,
         stagger: 0.2,
-        x:'80%',
-        autoAlpha:0,
-        delay:2.4,
-        ease:'back.out(1.2)',
+        x: "80%",
+        autoAlpha: 0,
+        delay: 2.4,
+        ease: "back.out(1.2)",
         scrollTrigger: {
-            trigger:"#home",
-            start:"-1% top",
-            end:"80% top",
-            // markers: true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
+          trigger: "#home",
+          start: "-1% top",
+          end: "80% top",
+          // markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
 
-    gsap.from('.about-content', {
-        x:'-100%',
-        stagger:0.6,
-        autoAlpha:0,
-        duration:1.2,
-        ease:'back.out(1.5)',
+      gsap.from(".about-content", {
+        x: "-100%",
+        stagger: 0.6,
+        autoAlpha: 0,
+        duration: 1.2,
+        ease: "back.out(1.5)",
         scrollTrigger: {
-            trigger: "#about",
-            start: "-10% center+=10",
-            end:"bottom center+=20",
-            // markers: true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.from('.about-text', {
-        x:'-100%',
-        stagger:0.1,
-        autoAlpha:0,
-        duration:.8,
-        ease:'power1.out',
+          trigger: "#about",
+          start: "-10% center+=10",
+          end: "bottom center+=20",
+          // markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".about-text", {
+        x: "-100%",
+        stagger: 0.1,
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about",
-            start: "-5% center+=10",
-            end:"bottom center+=20",
-            // markers: true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.from('.about-text_1', {
-        x:'100%',
-        stagger:0.2,
-        autoAlpha:0,
-        duration:1,
-        ease:'power1.out',
+          trigger: "#about",
+          start: "-5% center+=10",
+          end: "bottom center+=20",
+          // markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".about-text_1", {
+        x: "100%",
+        stagger: 0.2,
+        autoAlpha: 0,
+        duration: 1,
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about",
-            start: "-10% center+=10",
-            end:"bottom center+=20",
-            // markers: true,
-            toggleActions:"play reverse play reverse",
-        }
-    });
-    gsap.from('#project_1_video',{
-       autoAlpha:0,
-       duration:1.5,
-       ease:'power1.out',
-       scrollTrigger:{
-           trigger:'#project_1',
-           start:'-10% center',
-           end:'120% center',
-           // markers:true,
-           toggleActions:'play reverse play reverse'
-       }
-    });
-    gsap.from('.project_1_content',{
-        x:'100%',
-        stagger:0.2,
-        autoAlpha:0,
-        duration:1.5,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#project_1',
-            start:'-10% center',
-            end:'120% center',
-            // markers:true,
-            toggleActions:'play reverse play reverse'
-        }
-    });
-    gsap.from('#project_2_video',{
-        autoAlpha:0,
-        duration:1.5,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#project_2',
-            start:'-10% center',
-            end:'120% center',
-            // markers:true,
-            toggleActions:'play reverse play reverse'
-        }
-    });
-    gsap.from('.project_2_content',{
-        x:'-100%',
-        stagger:0.2,
-        autoAlpha:0,
-        duration:1.5,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#project_2',
-            start:'-10% center',
-            end:'120% center',
-            // markers:true,
-            toggleActions:'play reverse play reverse'
-        }
-    });
-    gsap.from('#project_3_video',{
-        autoAlpha:0,
-        duration:1.5,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#project_3',
-            start:'-10% center',
-            end:'120% center',
-            // markers:true,
-            toggleActions:'play reverse play reverse'
-        }
-    });
-    gsap.from('.project_3_content',{
-        x:'100%',
-        stagger:0.2,
-        autoAlpha:0,
-        duration:1.5,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#project_3',
-            start:'-10% center',
-            end:'120% center',
-            // markers:true,
-            toggleActions:'play reverse play reverse'
-        }
-    });
-    gsap.from('.art_1',{
-        x:'-100%',
-        stagger:0.1,
-        autoAlpha:0,
-        duration:3.0,
-        ease:'power1.out',
-        scrollTrigger:{
-            trigger:'#my_art',
-            start:'-10% 30%',
-            end:"120% center",
-            endTrigger:'#contact',
-            // markers:true,
-            toggleActions:'play reverse play reverse',
-        }
-    })
+          trigger: "#about",
+          start: "-10% center+=10",
+          end: "bottom center+=20",
+          // markers: true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from("#project_1_video", {
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_1",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".project_1_content", {
+        x: "100%",
+        stagger: 0.2,
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_1",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from("#project_2_video", {
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_2",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".project_2_content", {
+        x: "-100%",
+        stagger: 0.2,
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_2",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from("#project_3_video", {
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_3",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".project_3_content", {
+        x: "100%",
+        stagger: 0.2,
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#project_3",
+          start: "-10% center",
+          end: "120% center",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      gsap.from(".art_1", {
+        x: "-100%",
+        stagger: 0.1,
+        autoAlpha: 0,
+        duration: 3.0,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#my_art",
+          start: "-10% 30%",
+          end: "120% center",
+          endTrigger: "#contact",
+          // markers:true,
+          toggleActions: "play reverse play reverse",
+        },
+      });
 
-    if (document.querySelector('.gsap-marker-scroller-start')) {
+      if (document.querySelector(".gsap-marker-scroller-start")) {
         const markers = gsap.utils.toArray('[class *= "gsap-marker"]');
 
         bodyScrollBar.addListener(({ offset }) => {
-            gsap.set(markers, { marginTop: -offset.y })
+          gsap.set(markers, { marginTop: -offset.y });
         });
-    }
-    const home_el=document.querySelector('#home').getBoundingClientRect();
-
-    const about_el=document.querySelector('#about').getBoundingClientRect();
-    const work_el=document.querySelector('#work').getBoundingClientRect();
-    const contact_el=document.querySelector('#contact').getBoundingClientRect();
-
-  var size=0.04;
-  if(document.body.clientWidth<640){
-      this.size=0.0;
-  }
-  window.addEventListener('resize',e=>{
-      // console.log(document.body.clientWidth);
-      if(document.body.clientWidth<640){
-              this.size=0;
       }
-      else {
-          this.size=0.04;
+      const home_el = document.querySelector("#home").getBoundingClientRect();
+
+      const about_el = document.querySelector("#about").getBoundingClientRect();
+      const work_el = document.querySelector("#work").getBoundingClientRect();
+      const contact_el = document
+        .querySelector("#contact")
+        .getBoundingClientRect();
+
+      var size = 0.04;
+      if (document.body.clientWidth < 640) {
+        this.size = 0.0;
       }
-
-  })
-
-
-    const my_data = function(){
-        return {
-            showWeb:false,
-            scrollToAbout:()=>{
-
-              scrolling(about_el.top,about_el.height,false);
-        },
-            scrollToHome:(e)=>{
-               scrolling(home_el.top,home_el.height,false);
-            },
-            scrollToWork:()=>{
-                // scrolling(work_el.top,work_el.height,true);
-                gsap.to(bodyScrollBar,
-                    {duration:1,
-
-                        scrollTo: {y:work_el.top},onComplete: ()=>{
-                            bodyScrollBar.scrollTop = work_el.top
-                        },  });
-            },
-            scrollToContact:()=>{
-                // scrolling(contact_el.bottom,contact_el.height,false);
-                gsap.to(bodyScrollBar,
-                    {duration:1,
-
-                        scrollTo: {y:contact_el.bottom},onComplete: ()=>{
-                            bodyScrollBar.scrollTop = contact_el.bottom
-                        },  });
-            }
-
+      window.addEventListener("resize", (e) => {
+        // console.log(document.body.clientWidth);
+        if (document.body.clientWidth < 640) {
+          this.size = 0;
+        } else {
+          this.size = 0.04;
         }
-    }
-   function scrolling(top,height,is_work){
-      if(document.body.clientWidth<640){
+      });
 
-             let value=is_work?0.001:this.size;
-             console.log(value);
-          gsap.to(bodyScrollBar,
-              {duration:1,
+      const my_data = function () {
+        return {
+          showWeb: false,
+          scrollToAbout: () => {
+            scrolling(about_el.top, about_el.height, false);
+          },
+          scrollToHome: (e) => {
+            scrolling(home_el.top, home_el.height, false);
+          },
+          scrollToWork: () => {
+            // scrolling(work_el.top,work_el.height,true);
+            gsap.to(bodyScrollBar, {
+              duration: 1,
 
-                  scrollTo: {y:top-height*value},onComplete: ()=>{
-                      bodyScrollBar.scrollTop = top-height*value
-                  },  });
+              scrollTo: { y: work_el.top },
+              onComplete: () => {
+                bodyScrollBar.scrollTop = work_el.top;
+              },
+            });
+          },
+          scrollToContact: () => {
+            // scrolling(contact_el.bottom,contact_el.height,false);
+            gsap.to(bodyScrollBar, {
+              duration: 1,
+
+              scrollTo: { y: contact_el.bottom },
+              onComplete: () => {
+                bodyScrollBar.scrollTop = contact_el.bottom;
+              },
+            });
+          },
+        };
+      };
+      function scrolling(top, height, is_work) {
+        if (document.body.clientWidth < 640) {
+          let value = is_work ? 0.001 : this.size;
+          console.log(value);
+          gsap.to(bodyScrollBar, {
+            duration: 1,
+
+            scrollTo: { y: top - height * value },
+            onComplete: () => {
+              bodyScrollBar.scrollTop = top - height * value;
+            },
+          });
+        } else {
+          let value = is_work ? 0.002 : this.size;
+          console.log(value);
+          gsap.to(bodyScrollBar, {
+            duration: 1,
+
+            scrollTo: { y: top - height * value },
+            onComplete: () => {
+              bodyScrollBar.scrollTop = top - height * value;
+            },
+          });
+        }
       }
-      else{
-
-          let value=is_work?0.002:this.size;
-          console.log(value)
-          gsap.to(bodyScrollBar,
-              {duration:1,
-
-                  scrollTo: {y:top-height*value},onComplete: ()=>{
-                      bodyScrollBar.scrollTop = top-height*value
-                  },  });
-      }
-
-   }
-    const updateDocument = (offset) => {
-
-       console.log(offset);
-         bodyScrollBar.scrollTop = offset;
-
-    }
-
-</script>
-</body>
+      const updateDocument = (offset) => {
+        console.log(offset);
+        bodyScrollBar.scrollTop = offset;
+      };
+    </script>
+  </body>
 </html>
